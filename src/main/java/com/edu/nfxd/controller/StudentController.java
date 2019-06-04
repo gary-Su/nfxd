@@ -42,7 +42,7 @@ public class StudentController {
 	            return modelAndView;
 	        }
 
-	        if(!"9527".equals(command)){
+	        if(!"888888".equals(command)){
 	            modelAndView.addObject("error","口令错误！！！");
 	            modelAndView.setViewName("command");
 	            return modelAndView;
