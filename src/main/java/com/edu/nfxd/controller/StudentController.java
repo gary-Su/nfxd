@@ -3,7 +3,6 @@ package com.edu.nfxd.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +23,9 @@ public class StudentController {
 	@Autowired
 	public StudentService service;
 	
-	@RequestMapping(value="/preList",method = RequestMethod.GET)
-	public String preList(Model model) {
-		return "preList";
+	@RequestMapping(value="/command",method = RequestMethod.GET)
+	public String command(Model model) {
+		return "command";
 	}
 	
 	@RequestMapping(value="/list",method = RequestMethod.POST)
@@ -34,18 +33,18 @@ public class StudentController {
 //		HttpSession session = request.getSession(); 
 //		String code = (String) session.getAttribute("code");
 //		if(!"9527".equals(code)) {
-//			 modelAndView.setViewName("preList");
+//			 modelAndView.setViewName("Command");
 //			return modelAndView;
 //		}
 		if(bindingResult.hasErrors()){
 	            modelAndView.addObject("error",bindingResult.getFieldError().getDefaultMessage());
-	            modelAndView.setViewName("preList");
+	            modelAndView.setViewName("command");
 	            return modelAndView;
 	        }
 
 	        if(!"9527".equals(command)){
 	            modelAndView.addObject("error","口令错误！！！");
-	            modelAndView.setViewName("preList");
+	            modelAndView.setViewName("command");
 	            return modelAndView;
 	        }
 	        

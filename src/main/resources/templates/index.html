@@ -1,29 +1,114 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>在线报备</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-    <h1>在线报备</h1>
-    <form action="#" th:action="@{/add}" th:object="${student}" method="post">
-        <p>姓名: <input type="text" th:field="*{name}" required /></p>
-       	 性别: <input name="sex" type="radio" th:value="男"  th:text="男" th:attr="checked=true"/>
-      	<input name="sex" type="radio" th:value="女"  th:text="女" th:attr="checked=false"/>
-        <p>手机号码: <input type="text" th:field="*{phone}" required /></p>
-        <p>QQ或微信: <input type="text" th:field="*{qqorwechat}" required /></p>
-        <p>高中毕业学校: <input type="text" th:field="*{school}" required /></p>
-        <input name="subject" type="radio" th:value="文科"  th:text="文科" th:attr="checked=true"/>
-      	<input name="subject" type="radio" th:value="理科"  th:text="理科" th:attr="checked=false"/>
-      	<input name="subject" type="radio" th:value="中职"  th:text="中职" th:attr="checked=false"/>
-        <p>高考分数: <input type="number" th:field="*{grade}" required /></p>
-       	 意向专业：<select name="major" required>
-	        <option value="">--请选择--</option> 
-	        <option value="J2EE">J2EE</option> 
-	        <option value=".NET">.NET</option> 
-        </select>
-        <span th:text="${result}" style="color: red;"></span>
-        <p><input type="submit" value="提交" /> <input type="reset" value="清空" /></p>
-    </form>
-</body>
+<!doctype html>
+<html class="no-js h-100" lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.min.css">
+    <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </head>
+  <body class="h-100">
+    <div class="container-fluid">
+      <div class="row">
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">南方现代物流系</span>
+                <h3 class="page-title">在线报备</h3>
+              </div>
+            </div>
+            <!-- End Page Header -->
+            <!-- Default Light Table -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="card card-small mb-4">
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0">报备信息</h6>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item p-3">
+                      <div class="row">
+                        <div class="col">
+                          <form action="#" th:action="@{/add}" th:object="${student}" method="post">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label>姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
+                                <input input type="text" th:field="*{name}" required id="name" placeholder="请输入姓名" > 
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label>性别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
+                                <input name="sex"  type="radio" th:value="男"  th:text="男" th:attr="checked=true"/>
+      							<input name="sex"  type="radio" th:value="女"  th:text="女" th:attr="checked=false"/>
+                                 </div>
+                            </div>
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label>手机号码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
+                                <input type="text" th:field="*{phone}" required />
+                                </div>
+                              <div class="form-group col-md-6">
+                                <label>QQ或微信：</label>
+                                <input type="text" th:field="*{qqorwechat}" required />
+                               </div>
+                            </div>
+                            <div class="form-row">
+                             <div class="form-group col-md-6">
+                               <label >高中毕业学校：</label>
+                               <input type="text" th:field="*{school}" required />
+                              </div>
+                               <div class="form-group col-md-6">
+                               <label >分科情况&nbsp;&nbsp;：</label>
+                                <input name="subject" type="radio" th:value="文科"  th:text="文科" th:attr="checked=true"/>
+      							<input name="subject" type="radio" th:value="理科"  th:text="理科" th:attr="checked=false"/>
+      							<input name="subject" type="radio" th:value="中职"  th:text="中职" th:attr="checked=false"/>
+                              </div>
+                            </div>
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label>高考分数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
+                                 <input type="number" th:field="*{grade}" required />
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label>意向专业&nbsp;&nbsp;：</label>
+                              	<select name="major" required>
+							        <option value="">--请选择--</option> 
+							        <option value="J2EE">J2EE</option> 
+							        <option value=".NET">.NET</option> 
+						        </select>
+                              </div>
+                            </div>
+                            <div class="form-row">
+                               <span th:text="${result}" style="color: red;"></span>
+                            </div>
+                            <input type="submit" class="btn btn-accent" value="提交" /> <input type="reset" class="btn btn-accent" value="清空" />
+                          </form>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- End Default Light Table -->
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script src="scripts/popper.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/Chart.min.js"></script>
+    <script src="scripts/shards.min.js"></script>
+    <script src="scripts/jquery.sharrre.min.js"></script>
+    <script src="scripts/extras.1.1.0.min.js"></script>
+    <script src="scripts/shards-dashboards.1.1.0.min.js"></script>
+  </body>
 </html>

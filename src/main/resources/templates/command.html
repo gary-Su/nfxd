@@ -16,55 +16,48 @@
   <body class="h-100">
     <div class="container-fluid">
       <div class="row">
-        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3" style="margin-left: 6%!important">
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+          <div class="main-content-container container-fluid px-4">
             <!-- Page Header -->
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">南方现代物流系</span>
-                <h3 class="page-title">报备数据</h3>
+                <h3 class="page-title">在线报备</h3>
               </div>
             </div>
             <!-- End Page Header -->
             <!-- Default Light Table -->
             <div class="row">
-              <div class="col">
+              <div class="col-lg-6">
                 <div class="card card-small mb-4">
                   <div class="card-header border-bottom">
-                    <h6 class="m-0">学生清单</h6>
+                    <h6 class="m-0">报备信息</h6>
                   </div>
-                  <div class="card-body p-0 pb-3 text-center">
-                    <table class="table mb-0">
-                      <thead class="bg-light">
-                        <tr>
-                          <th scope="col" class="border-0">序号</th>
-                          <th scope="col" class="border-0">学生姓名</th>
-                          <th scope="col" class="border-0">性别</th>
-                          <th scope="col" class="border-0">手机号码</th>
-                          <th scope="col" class="border-0">QQ或微信</th>
-                          <th scope="col" class="border-0">高中毕业学校</th>
-                          <th scope="col" class="border-0">高中分科</th>
-                          <th scope="col" class="border-0">高考分数</th>
-                          <th scope="col" class="border-0">意向专业</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr th:each="stu:${list}">
-                        	<td th:text="${stu.id}"></td>
-                          	<td th:text="${stu.name}"></td>
-			                <td th:text="${stu.sex}"></td>
-			                <td th:text="${stu.phone}"></td>
-			                <td th:text="${stu.qqorwechat}"></td>
-			                <td th:text="${stu.school}"></td>
-			                <td th:text="${stu.subject}"></td>
-			                <td th:text="${stu.grade}"></td>
-			                <td th:text="${stu.major}"></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item p-3">
+                      <div class="row">
+                        <div class="col">
+                          <form th:action="@{/list}" method="post">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label>口令：</label>
+                                <input type="text"  id = "command" name="command" class="form-control" placeholder="请输入口令" required/>
+                              </div>
+                            </div>
+                            <div class="form-row">
+                               <span th:text="${error}" style="color: red;"></span>
+                            </div>
+                            <input type="submit" class="btn btn-accent" value="提交" />
+                          </form>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
+            </div>
             <!-- End Default Light Table -->
+          </div>
         </main>
       </div>
     </div>
