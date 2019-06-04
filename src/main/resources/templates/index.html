@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>在线报备</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>在线报备</h1>
+    <form action="#" th:action="@{/add}" th:object="${student}" method="post">
+        <p>姓名: <input type="text" th:field="*{name}" required /></p>
+       	 性别: <input name="sex" type="radio" th:value="男"  th:text="男" th:attr="checked=true"/>
+      	<input name="sex" type="radio" th:value="女"  th:text="女" th:attr="checked=false"/>
+        <p>手机号码: <input type="text" th:field="*{phone}" required /></p>
+        <p>QQ或微信: <input type="text" th:field="*{qqorwechat}" required /></p>
+        <p>高中毕业学校: <input type="text" th:field="*{school}" required /></p>
+        <input name="subject" type="radio" th:value="文科"  th:text="文科" th:attr="checked=true"/>
+      	<input name="subject" type="radio" th:value="理科"  th:text="理科" th:attr="checked=false"/>
+      	<input name="subject" type="radio" th:value="中职"  th:text="中职" th:attr="checked=false"/>
+        <p>高考分数: <input type="number" th:field="*{grade}" required /></p>
+       	 意向专业：<select name="major" required>
+	        <option value="">--请选择--</option> 
+	        <option value="J2EE">J2EE</option> 
+	        <option value=".NET">.NET</option> 
+        </select>
+        <span th:text="${result}" style="color: red;"></span>
+        <p><input type="submit" value="提交" /> <input type="reset" value="清空" /></p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<table border="1px solid;">
+        <thead>
+            <tr>
+                <th>学生姓名</th>
+                <th>性别</th>
+                <th>手机号码</th>
+                <th>QQ或微信</th>
+                <th>高中毕业学校</th>
+                <th>高中分科</th>
+                <th>高考分数</th>
+                <th>意向专业</th>
+            </tr>
+            <tr th:each="stu:${list}">
+                <td th:text="${stu.name}"></td>
+                <td th:text="${stu.sex}"></td>
+                <td th:text="${stu.phone}"></td>
+                <td th:text="${stu.qqorwechat}"></td>
+                <td th:text="${stu.school}"></td>
+                <td th:text="${stu.subject}"></td>
+                <td th:text="${stu.grade}"></td>
+                <td th:text="${stu.major}"></td>
+            </tr>
+        </thead>
+</table>
+</body>
+</html>
