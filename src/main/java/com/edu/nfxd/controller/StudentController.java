@@ -2,9 +2,10 @@ package com.edu.nfxd.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import org.apache.catalina.manager.util.SessionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.edu.nfxd.model.Student;
@@ -30,8 +30,14 @@ public class StudentController {
 	}
 	
 	@RequestMapping(value="/list",method = RequestMethod.POST)
-	public ModelAndView  listUser(ModelAndView modelAndView, @Valid String command, BindingResult bindingResult) {
-		  if(bindingResult.hasErrors()){
+	public ModelAndView  listUser(ModelAndView modelAndView, @Valid String command, BindingResult bindingResult,HttpServletRequest request) {
+//		HttpSession session = request.getSession(); 
+//		String code = (String) session.getAttribute("code");
+//		if(!"9527".equals(code)) {
+//			 modelAndView.setViewName("preList");
+//			return modelAndView;
+//		}
+		if(bindingResult.hasErrors()){
 	            modelAndView.addObject("error",bindingResult.getFieldError().getDefaultMessage());
 	            modelAndView.setViewName("preList");
 	            return modelAndView;
@@ -43,6 +49,8 @@ public class StudentController {
 	            return modelAndView;
 	        }
 	        
+	        
+//	        session.setAttribute("code", 9527);
 	        List<Student> list = service.selectAll();
 	        modelAndView.addObject("list",list);
 	        modelAndView.setViewName("list");
