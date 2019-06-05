@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
-  <body class="h-100">
+  <body class="h-100" th:style="'background:url('+@{images/bd.jpg}+');'">
     <div class="container-fluid">
-      <div class="row" th:style="'background:url('+@{images/bd.jpg}+');'">
+      <div class="row">
         <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3" style="margin-left: 6%!important">
             <!-- Page Header -->
             <div class="page-header row no-gutters py-4">
@@ -27,7 +27,7 @@
             <!-- End Page Header -->
             <!-- Default Light Table -->
             <div class="row">
-              <div class="col">
+              <div class="col" style="filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;">
                 <div class="card card-small mb-4">
                   <div class="card-header border-bottom">
                     <h6 class="m-0">学生清单</h6>
