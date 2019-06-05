@@ -36,7 +36,7 @@
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
               	<img  th:src="@{images/logo.png}"/>
-                <h3 class="page-title" style="padding-top: 10px;"> <span class="text-uppercase page-subtitle">现代信息与物流系校企共建专业</span>&nbsp;在线报备</h3>
+                <h6 class="page-title" style="padding-top: 10px;font-size:1.125rem"> <span class="text-uppercase page-subtitle">现代信息与物流系校企共建专业</span>&nbsp;在线报备</h6>
               </div>
             </div>
             <!-- End Page Header -->
@@ -59,7 +59,7 @@
                                 <input input type="text" th:field="*{name}" required id="name" placeholder="请输入姓名" > 
                               </div>
                               <div class="form-group col-md-6">
-                                <label>性别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
+                                <label>性别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
                                 <input name="sex"  type="radio" th:value="男"  th:text="男" th:attr="checked=true"/>
       							<input name="sex"  type="radio" th:value="女"  th:text="女" th:attr="checked=false"/>
                                  </div>
@@ -70,7 +70,7 @@
                                 <input type="text" th:field="*{phone}" id = "phone" placeholder="请输入手机号码" onblur="isPhone(this.value);" required />
                                 </div>
                               <div class="form-group col-md-6">
-                                <label>QQ或微信：</label>
+                                <label>QQ或微信&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
                                 <input type="text" th:field="*{qqorwechat}" placeholder="请输入QQ或微信" required />
                                </div>
                             </div>
@@ -80,7 +80,7 @@
                                <input type="text" th:field="*{school}" placeholder="请输入学校" required />
                               </div>
                                <div class="form-group col-md-6">
-                               <label >分科情况&nbsp;&nbsp;：</label>
+                               <label >分科情况&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
                                 <input name="subject" type="radio" th:value="文科"  th:text="文科" th:attr="checked=true"/>
       							<input name="subject" type="radio" th:value="理科"  th:text="理科" th:attr="checked=false"/>
       							<input name="subject" type="radio" th:value="中职"  th:text="中职" th:attr="checked=false"/>
@@ -92,7 +92,7 @@
                                  <input type="number" th:field="*{grade}" required />
                               </div>
                               <div class="form-group col-md-6">
-                                <label>意向专业&nbsp;&nbsp;：</label>
+                                <label>意向专业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
                               	<select name="major" required>
 							        <option value="">--请选择--</option> 
 							        <option value="J2EE">J2EE</option> 
