@@ -66,11 +66,12 @@ public class StudentController {
 	public ModelAndView add(@ModelAttribute Student student,ModelAndView modelAndView) {
 		int result = service.insertSelective(student);
 		if(result == 1) {
-			 modelAndView.addObject("result","报备成功！！！");
+			 modelAndView.addObject("result","报备成功！我们会尽快与您联系！！！");
 		}else {
 			 modelAndView.addObject("result","系统异常！！！");
 		}
-		 modelAndView.setViewName("index");
+		// modelAndView.setViewName("redirect:index");
+		modelAndView.setViewName("index");
 		 return modelAndView;
 	}
 }

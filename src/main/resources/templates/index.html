@@ -11,9 +11,23 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
-  <body class="h-100">
+  <script type="text/javascript">
+  	//document.getElementById("myform").reset();
+	  function isPhoneNum(str) {
+	      return /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test(str)
+	  }
+
+	  //验证手机号是否合法
+	  function isPhone(phone){
+		  if (!isPhoneNum(phone)){
+			  alert("手机号码输入不正确！")
+	          document.getElementById('phone').value="";
+	          return false;
+	      };       
+	  }
+  </script>
+  <body class="h-100" th:style="'background:url('+@{images/bd.jpg}+');'">
     <div class="container-fluid">
       <div class="row">
         <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
@@ -21,23 +35,24 @@
             <!-- Page Header -->
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                <span class="text-uppercase page-subtitle">南方现代物流系</span>
-                <h3 class="page-title">在线报备</h3>
+              	<img  th:src="@{images/logo.png}"/>
+                <h3 class="page-title" style="padding-top: 10px;"> <span class="text-uppercase page-subtitle">现代信息与物流系校企共建专业</span>&nbsp;在线报备</h3>
               </div>
             </div>
             <!-- End Page Header -->
             <!-- Default Light Table -->
             <div class="row">
-              <div class="col-lg-10">
+              <div class="col-lg-10" style="filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;">
                 <div class="card card-small mb-4">
                   <div class="card-header border-bottom">
-                    <h6 class="m-0">报备信息</h6>
+                    <h4 class="m-0">报备信息</h4>
+                    <h7 class="m-0" style="color:red;">请填写真实信息，会有专业老师第一时间联系你，注意接听电话。</h7>
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item p-3">
-                      <div class="row">
+                      <div class="row" >
                         <div class="col">
-                          <form action="#" th:action="@{/add}" th:object="${student}" method="post">
+                          <form id="myform" action="#" th:action="@{/add}" th:object="${student}" method="post">
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label>姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
@@ -52,7 +67,7 @@
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label>手机号码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label>
-                                <input type="text" th:field="*{phone}" placeholder="请输入手机号码" required />
+                                <input type="text" th:field="*{phone}" id = "phone" placeholder="请输入手机号码" onblur="isPhone(this.value);" required />
                                 </div>
                               <div class="form-group col-md-6">
                                 <label>QQ或微信：</label>
@@ -81,7 +96,8 @@
                               	<select name="major" required>
 							        <option value="">--请选择--</option> 
 							        <option value="J2EE">J2EE</option> 
-							        <option value=".NET">.NET</option> 
+							        <option value=".NET">.NET</option>
+							        <option value="other">其他</option>  
 						        </select>
                               </div>
                             </div>
