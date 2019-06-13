@@ -1,5 +1,6 @@
 package com.edu.nfxd.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,6 +65,7 @@ public class StudentController {
 	@RequestMapping(value="/add",method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView add(@ModelAttribute Student student,ModelAndView modelAndView) {
+		student.setCreateTime(new Date());
 		int result = service.insertSelective(student);
 		if(result == 1) {
 			 modelAndView.addObject("result","报备成功！我们会尽快与您联系！！！");
