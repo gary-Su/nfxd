@@ -11,9 +11,10 @@
     <result column="subject" property="subject" jdbcType="VARCHAR" />
     <result column="grade" property="grade" jdbcType="VARCHAR" />
     <result column="major" property="major" jdbcType="VARCHAR" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, sex, phone, qqorwechat, school, subject, grade, major
+    id, name, sex, phone, qqorwechat, school, subject, grade, major,createTime
   </sql>
    <select id="selectAll" resultMap="BaseResultMap">
     select 
@@ -34,12 +35,12 @@
   <insert id="insert" parameterType="com.edu.nfxd.model.Student" >
     insert into tb_student (id, name, sex, 
       phone, qqorwechat, school, 
-      subject, grade, major
+      subject, grade, major,createTime
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR}, #{qqorwechat,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, 
-      #{subject,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}
-      )
+      #{subject,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.edu.nfxd.model.Student">
     insert into tb_student
@@ -71,6 +72,9 @@
       <if test="major != null" >
         major,
       </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -99,6 +103,9 @@
       </if>
       <if test="major != null" >
         #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -129,6 +136,9 @@
       <if test="major != null" >
         major = #{major,jdbcType=VARCHAR},
       </if>
+       <if test="createTime != null" >
+		createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -141,7 +151,8 @@
       school = #{school,jdbcType=VARCHAR},
       subject = #{subject,jdbcType=VARCHAR},
       grade = #{grade,jdbcType=VARCHAR},
-      major = #{major,jdbcType=VARCHAR}
+      major = #{major,jdbcType=VARCHAR},
+      createTime = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

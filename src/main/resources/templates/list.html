@@ -30,7 +30,7 @@
               <div class="col" style="filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;">
                 <div class="card card-small mb-4">
                   <div class="card-header border-bottom">
-                    <h6 class="m-0">学生清单</h6>
+                    <h6 class="m-0">学生清单</h6>  <a th:href="@{/export}" style="float:right">导出EXCEL</a>
                   </div>
                   <div class="card-body p-0 pb-3 text-center">
                     <table class="table mb-0">
@@ -45,6 +45,7 @@
                           <th scope="col" class="border-0">高中分科</th>
                           <th scope="col" class="border-0">高考分数</th>
                           <th scope="col" class="border-0">意向专业</th>
+                          <th scope="col" class="border-0">报名时间</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -58,6 +59,7 @@
 			                <td th:text="${stu.subject}"></td>
 			                <td th:text="${stu.grade}"></td>
 			                <td th:text="${stu.major}"></td>
+			                <td th:text="${#dates.format(stu.createTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
                         </tr>
                       </tbody>
                     </table>

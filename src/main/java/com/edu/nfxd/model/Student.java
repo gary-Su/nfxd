@@ -1,5 +1,7 @@
 package com.edu.nfxd.model;
 
+import java.util.Date;
+
 public class Student {
     private Integer id;
 
@@ -18,6 +20,8 @@ public class Student {
     private String grade;
 
     private String major;
+    
+    private Date createTime;
 
     public Integer getId() {
         return id;
@@ -90,4 +94,12 @@ public class Student {
     public void setMajor(String major) {
         this.major = major == null ? null : major.trim();
     }
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 }
